@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SatisFilled Events & Decor — Website
 
-## Getting Started
+Next.js (App Router, TypeScript, Tailwind) site for SatisFilled Events & Decor.
+Bilingual (EN / CZ). Inquiry form emails new leads via Resend and logs a backup
+copy to a Google Sheet.
 
-First, run the development server:
+## Project structure
+
+- `app/[locale]/page.tsx` — the home page (Hero, Journey, Services, Contact)
+- `dictionaries/en.json`, `dictionaries/cz.json` — all site copy, per language
+- `components/` — Header, Hero, Journey, Services, ContactForm, Footer
+- `app/api/inquire/route.ts` — handles form submissions (email + sheet)
+- `public/images/` — logo and decor photos
+
+To edit text, edit the JSON dictionaries — you don't need to touch component
+code to change wording. To edit layout/styling, edit the matching file in
+`components/`.
+
+> **Note on the decor photos**: `public/images/decor-*.jpg` are the reference
+> photos you shared, but they were pulled from other decorators' Instagram/
+> Pinterest posts (different client names are visible — "Dilara's Babyshower",
+> "Baby Giana", etc.). Using someone else's event photos as your own portfolio
+> is a copyright and honesty risk. Swap these for real photos of your own
+> work before the site goes live — the file names in `public/images/` are
+> already wired into the code, so you can replace the files in place without
+> touching any component.
+
+## 1. Run it locally
+
+Requires [Node.js](https://nodejs.org) 20+ (already installed on this machine).
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 — it redirects to `/en`. Try `/cz` for Czech.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 2. Push to GitHub
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+git add -A
+git commit -m "Initial SatisFilled Events & Decor site"
+```
 
-## Learn More
+Create a new empty repo on GitHub (no README/gitignore — this project already
+has them), then:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+git remote add origin https://github.com/<your-username>/satisfilled-events-decor.git
+git branch -M main
+git push -u origin main
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 3. Deploy on Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Go to https://vercel.com/new
+2. Import the GitHub repo you just pushed
+3. Framework preset auto-detects as **Next.js** — leave build settings as default
+4. Before clicking Deploy, add the environment variables from step 4 below
+   (Settings → Environment Variables, or the "Environment Variables" section
+   on the import screen)
+5. Click **Deploy**
 
-## Deploy on Vercel
+Every future `git push` to `main` auto-deploys.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 4. Set up the inquiry form (email + Google Sheet)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The form POSTs to `/api/inquire`, which tries both an email notification and
+a spreadsheet log. If you skip one integration, the other still works.
+
+### 4a. Resend (email notifications)
+
+1. Sign up at https://resend.com using **omololairere@gmail.com**
+2. Dashboard → API Keys → Create API Key → copy it
+3. On the free/sandbox tier (no custom domain), Resend only delivers to the
+   email address you signed up with — which matches `omololairere@gmail.com`
+   used in the code, so this works out of the box. If you later want to send
+   from your own domain (e.g. `hello@satisfilled.com`), verify that domain
+   under Resend → Domains and update the `from` address in `lib/email.ts`.
+4. Add to your environment variables:
+   ```
+   RESEND_API_KEY=re_xxxxxxxxxxxx
+   ```
+
+### 4b. Google Sheet (backup log)
+
+1. Create a new Google Sheet. Rename the first tab to `Inquiries`. Add a
+   header row: `Timestamp | Name | Phone | Email | Event Type | Event Date | Location | Guests | Vision | Locale`
+2. Copy the Sheet ID from its URL:
+   `https://docs.google.com/spreadsheets/d/`**`THIS_PART`**`/edit`
+3. Go to https://console.cloud.google.com/ → create a project (any name)
+4. APIs & Services → Library → enable **Google Sheets API**
+5. APIs & Services → Credentials → Create Credentials → **Service Account**
+   → give it any name → Done
+6. Open the new service account → Keys → Add Key → Create new key → JSON →
+   download the file
+7. Open that JSON file. You need two values from it: `client_email` and
+   `private_key`
+8. Open your Google Sheet → Share → paste the `client_email` value → give it
+   **Editor** access → Send (this lets the service account write to the sheet)
+9. Add to your environment variables:
+   ```
+   GOOGLE_SHEET_ID=<the sheet ID from step 2>
+   GOOGLE_SERVICE_ACCOUNT_EMAIL=<client_email from the JSON>
+   GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY=<private_key from the JSON, keep the \n characters as-is>
+   ```
+
+### 4c. Where to put these locally vs. on Vercel
+
+- **Locally**: put them in `.env.local` (already git-ignored, never committed)
+- **On Vercel**: Project → Settings → Environment Variables → add all four,
+  then redeploy (Deployments → ⋯ → Redeploy) so the new values take effect
+
+## 5. Custom domain (optional)
+
+Vercel → Project → Settings → Domains → add your domain and follow the DNS
+instructions shown there.
+
+## Tech stack
+
+- Next.js 16 (App Router, TypeScript, Turbopack)
+- Tailwind CSS v4
+- Resend (email) + Google Sheets API (via `googleapis`) for the inquiry form

@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "title": "SatisFilled Events & Decor",
+    "description": "Balloon decor, event styling and catering in Prague. Your satisfaction is our fulfillment."
+  },
+  "nav": {
+    "home": "Home",
+    "journey": "Our Journey",
+    "services": "Services",
+    "contact": "Contact & Inquire",
+    "bookNow": "Book Now"
+  },
+  "hero": {
+    "tagline_pre": "Bringing beauty to your",
+    "tagline_em": "special moments",
+    "subtitle": "Balloon decor, event styling and catering, crafted around you in Prague.",
+    "cta_services": "View Services",
+    "cta_book": "Book Now"
+  },
+  "journey": {
+    "heading": "Your Journey With Us",
+    "subheading": "From first message to the last balloon in place, here is how we work together.",
+    "steps": [
+      {
+        "title": "Inquire",
+        "text": "Send us your event details through our inquiry form and tell us your vision."
+      },
+      {
+        "title": "Consult",
+        "text": "We talk through your theme, budget and guest count to shape the plan."
+      },
+      {
+        "title": "Design",
+        "text": "You receive a bespoke proposal covering decor, catering and styling."
+      },
+      {
+        "title": "Cherish",
+        "text": "We handle setup and delivery so you can simply enjoy the day."
+      }
+    ]
+  },
+  "services": {
+    "heading": "Our Services",
+    "subheading": "Decor, events and catering, tailored to your celebration.",
+    "bookNow": "Book Now",
+    "categories": [
+      {
+        "title": "Decor",
+        "items": [
+          { "title": "Balloon Garlands & Arches", "text": "Organic balloon installations in your event colors." },
+          { "title": "Backdrops & Photo Walls", "text": "Statement backdrops designed as the centerpiece of your venue." },
+          { "title": "Baby Shower Setups", "text": "Soft, dreamy decor to welcome the little one." },
+          { "title": "Birthday Setups", "text": "Themed birthday styling for every age and milestone." },
+          { "title": "Themed Displays", "text": "Custom character and theme displays, built around your idea." },
+          { "title": "Centerpieces", "text": "Table centerpieces that tie the whole room together." }
+        ]
+      },
+      {
+        "title": "Events",
+        "items": [
+          { "title": "Baby Showers", "text": "Full styling for a memorable welcome celebration." },
+          { "title": "Birthdays", "text": "From first birthdays to milestone celebrations." },
+          { "title": "Bridal Showers", "text": "Elegant styling for the bride-to-be." },
+          { "title": "Weddings", "text": "Décor that brings your wedding vision to life." },
+          { "title": "Christenings & Naming Ceremonies", "text": "Gentle, celebratory styling for this special day." },
+          { "title": "Corporate Events", "text": "Polished decor and catering for company gatherings." }
+        ]
+      },
+      {
+        "title": "Catering",
+        "items": [
+          { "title": "Full Event Catering", "text": "Complete menus prepared and served for your event." },
+          { "title": "Grazing & Dessert Tables", "text": "Beautifully arranged grazing and dessert spreads." },
+          { "title": "Cakes & Desserts", "text": "Custom cakes and sweet treats made to order." },
+          { "title": "Small Chops & Finger Foods", "text": "Bite-sized favorites for mingling and celebrations." },
+          { "title": "Private Chef", "text": "A private chef for intimate dinners and gatherings." },
+          { "title": "Private & Group Picnics", "text": "Curated picnic setups for two or for a crowd." },
+          { "title": "Custom Gift Baskets", "text": "Thoughtfully arranged gift baskets for any occasion." }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Contact & Inquire",
+    "subheading": "Tell us about your event and we will get back to you shortly.",
+    "motto": "Every detail, thoughtfully cherished.",
+    "form": {
+      "name": "Full Name",
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "eventType": "Event Type",
+      "eventTypeOptions": [
+        "Baby Shower",
+        "Birthday",
+        "Bridal Shower",
+        "Wedding",
+        "Christening / Naming Ceremony",
+        "Corporate Event",
+        "Catering Only",
+        "Other"
+      ],
+      "eventDate": "Event Date",
+      "location": "Event Location",
+      "guestCount": "Estimated Guest Count",
+      "vision": "Tell Us Your Vision",
+      "visionPlaceholder": "Theme, colors, budget range, anything you'd like us to know...",
+      "submit": "Send Inquiry",
+      "submitting": "Sending...",
+      "success": "Thank you! Your inquiry has been sent. We'll be in touch soon.",
+      "error": "Something went wrong. Please try again or email us directly."
+    },
+    "details": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "instagram": "Instagram"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "motto": "your satisfaction is our fulfillment..."
+  }
+}

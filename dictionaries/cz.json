@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "title": "SatisFilled Events & Decor",
+    "description": "Balónková výzdoba, styling akcí a catering v Praze. Vaše spokojenost je naše naplnění."
+  },
+  "nav": {
+    "home": "Domů",
+    "journey": "Naše Cesta",
+    "services": "Služby",
+    "contact": "Kontakt a Poptávka",
+    "bookNow": "Rezervovat"
+  },
+  "hero": {
+    "tagline_pre": "Přinášíme krásu do vašich",
+    "tagline_em": "výjimečných chvil",
+    "subtitle": "Balónková výzdoba, styling akcí a catering, vytvořené na míru v Praze.",
+    "cta_services": "Zobrazit Služby",
+    "cta_book": "Rezervovat"
+  },
+  "journey": {
+    "heading": "Vaše Cesta S Námi",
+    "subheading": "Od první zprávy až po poslední balónek na svém místě – takto spolupracujeme.",
+    "steps": [
+      {
+        "title": "Poptávka",
+        "text": "Pošlete nám detaily vaší akce přes poptávkový formulář a řekněte nám svou vizi."
+      },
+      {
+        "title": "Konzultace",
+        "text": "Probereme téma, rozpočet a počet hostů, abychom vytvořili plán."
+      },
+      {
+        "title": "Návrh",
+        "text": "Obdržíte návrh na míru zahrnující výzdobu, catering a styling."
+      },
+      {
+        "title": "Oslava",
+        "text": "Postaráme se o instalaci a dodání, abyste si den mohli jen užít."
+      }
+    ]
+  },
+  "services": {
+    "heading": "Naše Služby",
+    "subheading": "Výzdoba, akce a catering na míru vaší oslavě.",
+    "bookNow": "Rezervovat",
+    "categories": [
+      {
+        "title": "Výzdoba",
+        "items": [
+          { "title": "Balónkové Girlandy a Oblouky", "text": "Organické balónkové instalace v barvách vaší akce." },
+          { "title": "Fotostěny a Kulisy", "text": "Výrazné kulisy navržené jako středobod vašeho prostoru." },
+          { "title": "Výzdoba na Baby Shower", "text": "Jemná, snová výzdoba na uvítanou pro miminko." },
+          { "title": "Výzdoba na Oslavy", "text": "Tematický styling narozenin pro každý věk a milník." },
+          { "title": "Tematické Instalace", "text": "Vlastní postavičky a motivy vytvořené podle vaší představy." },
+          { "title": "Dekorace Stolů", "text": "Středové dekorace, které spojí celý prostor dohromady." }
+        ]
+      },
+      {
+        "title": "Akce",
+        "items": [
+          { "title": "Baby Shower", "text": "Kompletní styling pro nezapomenutelnou oslavu na uvítanou." },
+          { "title": "Narozeniny", "text": "Od prvních narozenin až po významná výročí." },
+          { "title": "Rozlučka se Svobodou", "text": "Elegantní styling pro budoucí nevěstu." },
+          { "title": "Svatby", "text": "Výzdoba, která oživí vaši svatební vizi." },
+          { "title": "Křtiny a Vítání Občánků", "text": "Jemný, slavnostní styling pro tento výjimečný den." },
+          { "title": "Firemní Akce", "text": "Profesionální výzdoba a catering pro firemní setkání." }
+        ]
+      },
+      {
+        "title": "Catering",
+        "items": [
+          { "title": "Kompletní Catering na Akce", "text": "Kompletní menu připravené a servírované na vaší akci." },
+          { "title": "Grazing a Dezertové Stoly", "text": "Krásně aranžované grazing a dezertové tabule." },
+          { "title": "Dorty a Dezerty", "text": "Vlastní dorty a sladkosti na zakázku." },
+          { "title": "Chuťovky a Občerstvení", "text": "Oblíbené drobné pokrmy pro networking a oslavy." },
+          { "title": "Soukromý Kuchař", "text": "Soukromý kuchař pro komorní večeře a setkání." },
+          { "title": "Soukromé a Skupinové Piknky", "text": "Připravené piknikové sety pro dva i pro větší skupinu." },
+          { "title": "Vlastní Dárkové Koše", "text": "Promyšleně sestavené dárkové koše na jakoukoliv příležitost." }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Kontakt a Poptávka",
+    "subheading": "Napište nám o vaší akci a my se vám brzy ozveme.",
+    "motto": "Každý detail s láskou.",
+    "form": {
+      "name": "Celé Jméno",
+      "phone": "Telefonní Číslo",
+      "email": "E-mailová Adresa",
+      "eventType": "Typ Akce",
+      "eventTypeOptions": [
+        "Baby Shower",
+        "Narozeniny",
+        "Rozlučka se Svobodou",
+        "Svatba",
+        "Křtiny / Vítání Občánků",
+        "Firemní Akce",
+        "Pouze Catering",
+        "Jiné"
+      ],
+      "eventDate": "Datum Akce",
+      "location": "Místo Konání",
+      "guestCount": "Odhadovaný Počet Hostů",
+      "vision": "Řekněte Nám Vaši Vizi",
+      "visionPlaceholder": "Téma, barvy, rozpočet, cokoliv, co bychom měli vědět...",
+      "submit": "Odeslat Poptávku",
+      "submitting": "Odesílání...",
+      "success": "Děkujeme! Vaše poptávka byla odeslána. Brzy se vám ozveme.",
+      "error": "Něco se pokazilo. Zkuste to prosím znovu nebo nám napište přímo."
+    },
+    "details": {
+      "email": "E-mail",
+      "phone": "Telefon",
+      "location": "Místo",
+      "instagram": "Instagram"
+    }
+  },
+  "footer": {
+    "rights": "Všechna práva vyhrazena.",
+    "motto": "vaše spokojenost je naše naplnění..."
+  }
+}
