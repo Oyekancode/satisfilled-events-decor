@@ -18,11 +18,21 @@ const dancingScript = Dancing_Script({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://satisfilled.com"),
   title: "SatisFilled Events & Decor",
   description:
     "Balloon decor, event styling and catering in Prague. Your satisfaction is our fulfillment.",
   icons: {
     icon: "/images/logo.png",
+  },
+  openGraph: {
+    siteName: "SatisFilled Events & Decor",
+    type: "website",
+    images: [{ url: "/opengraph-image.jpg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/opengraph-image.jpg"],
   },
 };
 
