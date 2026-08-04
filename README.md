@@ -71,13 +71,14 @@ a spreadsheet log. If you skip one integration, the other still works.
 
 ### 4a. Resend (email notifications)
 
-1. Sign up at https://resend.com using **omololairere@gmail.com**
+1. Sign up at https://resend.com using **iamsatisfilled@gmail.com**
 2. Dashboard → API Keys → Create API Key → copy it
 3. On the free/sandbox tier (no custom domain), Resend only delivers to the
-   email address you signed up with — which matches `omololairere@gmail.com`
+   email address you signed up with — which matches `iamsatisfilled@gmail.com`
    used in the code, so this works out of the box. If you later want to send
-   from your own domain (e.g. `hello@satisfilled.com`), verify that domain
-   under Resend → Domains and update the `from` address in `lib/email.ts`.
+   from your own domain (e.g. `info@satisfilled.com`, once you've set up
+   email hosting/forwarding for it), verify that domain under Resend →
+   Domains and update the `from` address in `lib/email.ts`.
 4. Add to your environment variables:
    ```
    RESEND_API_KEY=re_xxxxxxxxxxxx

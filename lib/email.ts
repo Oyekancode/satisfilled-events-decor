@@ -12,7 +12,7 @@ export type InquiryPayload = {
   locale: string;
 };
 
-const NOTIFY_EMAIL = "omololairere@gmail.com";
+const NOTIFY_EMAIL = "iamsatisfilled@gmail.com";
 
 export async function sendInquiryEmail(payload: InquiryPayload) {
   const apiKey = process.env.RESEND_API_KEY;

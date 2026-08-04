@@ -56,7 +56,7 @@ export default function ContactForm({
               <dt className="font-medium text-primary">
                 {dict.contact.details.email}
               </dt>
-              <dd className="text-ink/70">omololairere@gmail.com</dd>
+              <dd className="text-ink/70">iamsatisfilled@gmail.com</dd>
             </div>
             <div>
               <dt className="font-medium text-primary">
