@@ -113,6 +113,10 @@ a spreadsheet log. If you skip one integration, the other still works.
 - **On Vercel**: Project → Settings → Environment Variables → add all four,
   then redeploy (Deployments → ⋯ → Redeploy) so the new values take effect
 
+> The Gmail/Phone/Location/Instagram icons in the Contact section are drawn
+> locally from the `lucide-react` and `react-icons` packages — no API key or
+> external request needed for those.
+
 ## 5. Custom domain (optional)
 
 Vercel → Project → Settings → Domains → add your domain and follow the DNS

@@ -1,10 +1,14 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { Phone, MapPin } from "lucide-react";
+import { SiGmail, SiInstagram } from "react-icons/si";
 import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/locales";
 
 type Status = "idle" | "submitting" | "success" | "error";
+
+const MAPS_QUERY = encodeURIComponent("K Podjezdu, Prague 4");
 
 export default function ContactForm({
   dict,
@@ -52,33 +56,75 @@ export default function ContactForm({
           </p>
 
           <dl className="mt-10 space-y-4 text-sm">
-            <div>
-              <dt className="font-medium text-primary">
-                {dict.contact.details.email}
-              </dt>
-              <dd className="text-ink/70">iamsatisfilled@gmail.com</dd>
-            </div>
-            <div>
-              <dt className="font-medium text-primary">
-                {dict.contact.details.phone}
-              </dt>
-              <dd className="text-ink/70">+420 774 374 600</dd>
-            </div>
-            <div>
-              <dt className="font-medium text-primary">
-                {dict.contact.details.location}
-              </dt>
-              <dd className="text-ink/70">K Podjezdu, Prague 4</dd>
-            </div>
-            <div>
-              <dt className="font-medium text-primary">
-                {dict.contact.details.instagram}
-              </dt>
-              <dd className="text-ink/70">
-                @satisfilled_catering
-                <br />
-                @satisfilledevents_and_decors
-              </dd>
+            <a
+              href="mailto:iamsatisfilled@gmail.com"
+              className="flex items-start gap-3 group w-fit"
+            >
+              <SiGmail className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+              <div>
+                <dt className="font-medium text-primary">
+                  {dict.contact.details.email}
+                </dt>
+                <dd className="text-ink/70 group-hover:text-primary transition-colors">
+                  iamsatisfilled@gmail.com
+                </dd>
+              </div>
+            </a>
+            <a
+              href="tel:+420774374600"
+              className="flex items-start gap-3 group w-fit"
+            >
+              <Phone className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+              <div>
+                <dt className="font-medium text-primary">
+                  {dict.contact.details.phone}
+                </dt>
+                <dd className="text-ink/70 group-hover:text-primary transition-colors">
+                  +420 774 374 600
+                </dd>
+              </div>
+            </a>
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${MAPS_QUERY}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-3 group w-fit"
+            >
+              <MapPin className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+              <div>
+                <dt className="font-medium text-primary">
+                  {dict.contact.details.location}
+                </dt>
+                <dd className="text-ink/70 group-hover:text-primary transition-colors">
+                  K Podjezdu, Prague 4
+                </dd>
+              </div>
+            </a>
+            <div className="flex items-start gap-3">
+              <SiInstagram className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+              <div>
+                <dt className="font-medium text-primary">
+                  {dict.contact.details.instagram}
+                </dt>
+                <dd className="text-ink/70 flex flex-col">
+                  <a
+                    href="https://instagram.com/satisfilled_catering"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors w-fit"
+                  >
+                    @satisfilled_catering
+                  </a>
+                  <a
+                    href="https://instagram.com/satisfilledevents_and_decor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors w-fit"
+                  >
+                    @satisfilledevents_and_decor
+                  </a>
+                </dd>
+              </div>
             </div>
           </dl>
         </div>
