@@ -19,9 +19,9 @@ export default function Header({
   const links = [
     { href: `/${locale}#journey`, label: dict.nav.journey },
     { href: `/${locale}#services`, label: dict.nav.services },
-    { href: `/${locale}#testimonials`, label: dict.nav.testimonials },
     { href: `/${locale}#estimate`, label: dict.nav.estimate },
     { href: `/${locale}#contact`, label: dict.nav.contact },
+    { href: `/${locale}#testimonials`, label: dict.nav.testimonials },
   ];
 
   return (

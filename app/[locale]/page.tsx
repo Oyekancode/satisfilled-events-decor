@@ -62,8 +62,8 @@ export default async function HomePage({
         <Hero dict={dict} locale={locale} />
         <Journey dict={dict} />
         <Services dict={dict} locale={locale} />
-        <Testimonials dict={dict} locale={locale} />
         <WishlistSection dict={dict} locale={locale} />
+        <Testimonials dict={dict} locale={locale} />
       </main>
       <Footer dict={dict} />
     </div>
