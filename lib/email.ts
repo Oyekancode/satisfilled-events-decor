@@ -58,6 +58,42 @@ export async function sendInquiryEmail(payload: InquiryPayload) {
   });
 }
 
+export type ReviewPayload = {
+  name: string;
+  rating: number;
+  text: string;
+  locale: string;
+};
+
+export async function sendReviewEmail(payload: ReviewPayload) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error("RESEND_API_KEY is not set");
+  }
+
+  const resend = new Resend(apiKey);
+
+  const stars = "★".repeat(payload.rating) + "☆".repeat(5 - payload.rating);
+
+  const html = `
+    <h2>New review submitted on SatisFilled Events & Decor website</h2>
+    <p><strong>Name:</strong> ${escapeHtml(payload.name)}</p>
+    <p><strong>Rating:</strong> ${stars} (${payload.rating}/5)</p>
+    <p><strong>Review:</strong><br/>${escapeHtml(payload.text).replaceAll(
+      "\n",
+      "<br/>"
+    )}</p>
+    <p style="color:#888;font-size:12px">This review is not published automatically — add it to dictionaries/en.json and dictionaries/cz.json under "testimonials.reviews" to publish it.</p>
+  `;
+
+  await resend.emails.send({
+    from: "SatisFilled Website <onboarding@resend.dev>",
+    to: NOTIFY_EMAIL,
+    subject: `New ${payload.rating}★ Review — ${payload.name}`,
+    html,
+  });
+}
+
 function escapeHtml(value: string) {
   return value
     .replaceAll("&", "&amp;")

@@ -8,6 +8,7 @@
     "journey": "Our Journey",
     "services": "Services",
     "estimate": "Build Your Wishlist",
+    "testimonials": "Reviews",
     "contact": "Contact & Inquire",
     "bookNow": "Book Now"
   },
@@ -90,6 +91,24 @@
     "clear": "Clear All",
     "addToInquiry": "Add to Inquiry",
     "added": "Added! Scroll down to finish your inquiry below."
+  },
+  "testimonials": {
+    "heading": "What Our Clients Say",
+    "subheading": "Real feedback from real celebrations.",
+    "empty": "No reviews yet — be the first to share your experience!",
+    "reviews": [],
+    "form": {
+      "heading": "Share Your Experience",
+      "subheading": "Had an event with us? We'd love to hear how it went.",
+      "name": "Your Name",
+      "rating": "Your Rating",
+      "text": "Your Review",
+      "textPlaceholder": "Tell us about your experience...",
+      "submit": "Submit Review",
+      "submitting": "Sending...",
+      "success": "Thank you! Your review has been sent — we'll add it to the site soon.",
+      "error": "Something went wrong. Please try again or email us directly."
+    }
   },
   "contact": {
     "heading": "Contact & Inquire",

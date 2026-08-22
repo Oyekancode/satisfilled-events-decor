@@ -8,6 +8,7 @@
     "journey": "Naše Cesta",
     "services": "Služby",
     "estimate": "Sestavte Si Přání",
+    "testimonials": "Recenze",
     "contact": "Kontakt a Poptávka",
     "bookNow": "Rezervovat"
   },
@@ -90,6 +91,24 @@
     "clear": "Vymazat Vše",
     "addToInquiry": "Přidat do Poptávky",
     "added": "Přidáno! Pokračujte dolů a dokončete poptávku."
+  },
+  "testimonials": {
+    "heading": "Co Říkají Naši Klienti",
+    "subheading": "Opravdové ohlasy z opravdových oslav.",
+    "empty": "Zatím žádné recenze — buďte první, kdo se podělí o svou zkušenost!",
+    "reviews": [],
+    "form": {
+      "heading": "Podělte Se O Svou Zkušenost",
+      "subheading": "Měli jste u nás akci? Rádi bychom slyšeli, jak to dopadlo.",
+      "name": "Vaše Jméno",
+      "rating": "Vaše Hodnocení",
+      "text": "Vaše Recenze",
+      "textPlaceholder": "Řekněte nám o své zkušenosti...",
+      "submit": "Odeslat Recenzi",
+      "submitting": "Odesílání...",
+      "success": "Děkujeme! Vaše recenze byla odeslána — brzy ji přidáme na web.",
+      "error": "Něco se pokazilo. Zkuste to prosím znovu nebo nám napište přímo."
+    }
   },
   "contact": {
     "heading": "Kontakt a Poptávka",

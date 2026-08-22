@@ -25,6 +25,23 @@ code to change wording. To edit layout/styling, edit the matching file in
 > already wired into the code, so you can replace the files in place without
 > touching any component.
 
+## Reviews / testimonials
+
+Visitors can submit a star rating + testimonial via the "Reviews" section
+(`components/Testimonials.tsx` + `ReviewForm.tsx`), which POSTs to
+`app/api/review/route.ts`. **Nothing publishes automatically** — a submission
+only sends you an email (reusing the same `RESEND_API_KEY` the inquiry form
+uses, no new setup needed). To actually put a review on the site, add it by
+hand to the `testimonials.reviews` array in both `dictionaries/en.json` and
+`dictionaries/cz.json`:
+
+```json
+{ "name": "Jane D.", "rating": 5, "text": "Absolutely loved our balloon arch!" }
+```
+
+If you want the review in both languages, translate `text` for the CZ file;
+`name` and `rating` stay the same.
+
 ## Social share preview (Open Graph image)
 
 `app/opengraph-image.jpg` is what shows up when a link to satisfilled.com is
