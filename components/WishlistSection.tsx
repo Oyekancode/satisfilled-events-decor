@@ -14,7 +14,6 @@ export default function WishlistSection({
   locale: Locale;
 }) {
   const [selected, setSelected] = useState<Set<string>>(new Set());
-  const [guestCount, setGuestCount] = useState("");
   const [wishlist, setWishlist] = useState("");
   const [justAdded, setJustAdded] = useState(false);
   const addedTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -30,12 +29,10 @@ export default function WishlistSection({
 
   function clear() {
     setSelected(new Set());
-    setGuestCount("");
   }
 
   function addToInquiry() {
     const lines = Array.from(selected).map((item) => `- ${item}`);
-    if (guestCount) lines.push(`- ${dict.estimate.guestCount}: ${guestCount}`);
     setWishlist(lines.join("\n"));
 
     setJustAdded(true);
@@ -51,8 +48,6 @@ export default function WishlistSection({
         dict={dict}
         selected={selected}
         onToggle={toggle}
-        guestCount={guestCount}
-        onGuestCountChange={setGuestCount}
         onClear={clear}
         onAddToInquiry={addToInquiry}
         justAdded={justAdded}
@@ -63,7 +58,6 @@ export default function WishlistSection({
         wishlist={wishlist}
         onSubmitted={() => {
           setSelected(new Set());
-          setGuestCount("");
           setWishlist("");
         }}
       />

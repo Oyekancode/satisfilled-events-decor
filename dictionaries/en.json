@@ -83,9 +83,8 @@
   },
   "estimate": {
     "heading": "Build Your Wishlist",
-    "subheading": "Check off everything you're interested in, add a guest count, and we'll follow up with a custom quote — no need to know your budget upfront.",
+    "subheading": "Check off everything you're interested in, then send it with your inquiry below and we'll follow up with a custom quote — no need to know your budget upfront.",
     "note": "This isn't a live price calculator — every event is different, so we price it by hand once we see what you've picked.",
-    "guestCount": "Estimated Guest Count",
     "selectionsHeading": "Your Wishlist",
     "empty": "Nothing selected yet — check off items on the left.",
     "clear": "Clear All",

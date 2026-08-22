@@ -6,8 +6,6 @@ export default function EstimateBuilder({
   dict,
   selected,
   onToggle,
-  guestCount,
-  onGuestCountChange,
   onClear,
   onAddToInquiry,
   justAdded,
@@ -15,8 +13,6 @@ export default function EstimateBuilder({
   dict: Dictionary;
   selected: Set<string>;
   onToggle: (item: string) => void;
-  guestCount: string;
-  onGuestCountChange: (value: string) => void;
   onClear: () => void;
   onAddToInquiry: () => void;
   justAdded: boolean;
@@ -66,17 +62,6 @@ export default function EstimateBuilder({
               </div>
             </div>
           ))}
-
-          <label className="flex flex-col gap-1 text-sm max-w-xs">
-            <span className="font-medium text-ink/80">{e.guestCount}</span>
-            <input
-              type="number"
-              min={0}
-              value={guestCount}
-              onChange={(ev) => onGuestCountChange(ev.target.value)}
-              className="rounded-lg border border-primary/20 px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-primary/40"
-            />
-          </label>
         </div>
 
         <div className="lg:col-span-2">
@@ -96,12 +81,6 @@ export default function EstimateBuilder({
                   </li>
                 ))}
               </ul>
-            )}
-
-            {guestCount && (
-              <p className="mt-3 text-sm text-ink/70">
-                {e.guestCount}: <strong>{guestCount}</strong>
-              </p>
             )}
 
             <p className="mt-4 text-xs text-ink/50">{e.note}</p>
