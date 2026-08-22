@@ -20,6 +20,7 @@ export async function POST(req: NextRequest) {
     location: String(body.location ?? "").slice(0, 200),
     guestCount: String(body.guestCount ?? "").slice(0, 20),
     vision: String(body.vision ?? "").slice(0, 2000),
+    wishlist: String(body.wishlist ?? "").slice(0, 2000),
     locale: String(body.locale ?? "en").slice(0, 5),
   };
 

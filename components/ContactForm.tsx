@@ -13,9 +13,13 @@ const MAPS_QUERY = encodeURIComponent("K Podjezdu, Prague 4");
 export default function ContactForm({
   dict,
   locale,
+  wishlist,
+  onSubmitted,
 }: {
   dict: Dictionary;
   locale: Locale;
+  wishlist?: string;
+  onSubmitted?: () => void;
 }) {
   const [status, setStatus] = useState<Status>("idle");
   const f = dict.contact.form;
@@ -38,6 +42,7 @@ export default function ContactForm({
 
       setStatus("success");
       form.reset();
+      onSubmitted?.();
     } catch {
       setStatus("error");
     }
@@ -155,6 +160,17 @@ export default function ContactForm({
           <Field label={f.eventDate} name="eventDate" type="date" />
           <Field label={f.location} name="location" />
           <Field label={f.guestCount} name="guestCount" type="number" />
+
+          <input type="hidden" name="wishlist" value={wishlist ?? ""} readOnly />
+          {wishlist && (
+            <div className="sm:col-span-2 rounded-lg border border-primary/20 bg-blush/30 px-3 py-2 text-sm text-ink/70 whitespace-pre-line">
+              <span className="font-medium text-primary">
+                {dict.estimate.selectionsHeading}:
+              </span>
+              {"\n"}
+              {wishlist}
+            </div>
+          )}
 
           <label className="flex flex-col gap-1 text-sm sm:col-span-2">
             <span className="font-medium text-ink/80">{f.vision}</span>

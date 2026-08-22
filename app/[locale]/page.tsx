@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Journey from "@/components/Journey";
 import Services from "@/components/Services";
-import ContactForm from "@/components/ContactForm";
+import WishlistSection from "@/components/WishlistSection";
 import Footer from "@/components/Footer";
 
 export async function generateMetadata({
@@ -61,7 +61,7 @@ export default async function HomePage({
         <Hero dict={dict} locale={locale} />
         <Journey dict={dict} />
         <Services dict={dict} locale={locale} />
-        <ContactForm dict={dict} locale={locale} />
+        <WishlistSection dict={dict} locale={locale} />
       </main>
       <Footer dict={dict} />
     </div>

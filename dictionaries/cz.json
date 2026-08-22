@@ -7,6 +7,7 @@
     "home": "Domů",
     "journey": "Naše Cesta",
     "services": "Služby",
+    "estimate": "Sestavte Si Přání",
     "contact": "Kontakt a Poptávka",
     "bookNow": "Rezervovat"
   },
@@ -79,6 +80,17 @@
         ]
       }
     ]
+  },
+  "estimate": {
+    "heading": "Sestavte Si Přání",
+    "subheading": "Zaškrtněte vše, o co máte zájem, přidejte počet hostů a my se vám ozveme s cenovou nabídkou na míru — rozpočet předem znát nemusíte.",
+    "note": "Nejde o kalkulačku cen v reálném čase — každá akce je jiná, cenu stanovujeme ručně podle toho, co si vyberete.",
+    "guestCount": "Odhadovaný Počet Hostů",
+    "selectionsHeading": "Váš Seznam Přání",
+    "empty": "Zatím nic nevybráno — zaškrtněte položky vlevo.",
+    "clear": "Vymazat Vše",
+    "addToInquiry": "Přidat do Poptávky",
+    "added": "Přidáno! Pokračujte dolů a dokončete poptávku."
   },
   "contact": {
     "heading": "Kontakt a Poptávka",

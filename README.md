@@ -108,7 +108,7 @@ a spreadsheet log. If you skip one integration, the other still works.
 ### 4b. Google Sheet (backup log)
 
 1. Create a new Google Sheet. Rename the first tab to `Inquiries`. Add a
-   header row: `Timestamp | Name | Phone | Email | Event Type | Event Date | Location | Guests | Vision | Locale`
+   header row: `Timestamp | Name | Phone | Email | Event Type | Event Date | Location | Guests | Vision | Wishlist | Locale`
 2. Copy the Sheet ID from its URL:
    `https://docs.google.com/spreadsheets/d/`**`THIS_PART`**`/edit`
 3. Go to https://console.cloud.google.com/ → create a project (any name)

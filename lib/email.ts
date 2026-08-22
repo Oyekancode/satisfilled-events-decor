@@ -9,6 +9,7 @@ export type InquiryPayload = {
   location: string;
   guestCount: string;
   vision: string;
+  wishlist: string;
   locale: string;
 };
 
@@ -31,6 +32,7 @@ export async function sendInquiryEmail(payload: InquiryPayload) {
     ["Location", payload.location],
     ["Guest Count", payload.guestCount],
     ["Vision", payload.vision],
+    ["Wishlist", payload.wishlist],
   ];
 
   const html = `
@@ -41,7 +43,7 @@ export async function sendInquiryEmail(payload: InquiryPayload) {
           ([label, value]) =>
             `<tr><td style="font-weight:600;vertical-align:top">${label}</td><td>${escapeHtml(
               value || "-"
-            )}</td></tr>`
+            ).replaceAll("\n", "<br/>")}</td></tr>`
         )
         .join("")}
     </table>

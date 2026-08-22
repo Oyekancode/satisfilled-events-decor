@@ -26,7 +26,7 @@ export async function appendInquiryToSheet(payload: InquiryPayload) {
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: GOOGLE_SHEET_ID,
-    range: "Inquiries!A:J",
+    range: "Inquiries!A:K",
     valueInputOption: "USER_ENTERED",
     requestBody: {
       values: [
@@ -40,6 +40,7 @@ export async function appendInquiryToSheet(payload: InquiryPayload) {
           payload.location,
           payload.guestCount,
           payload.vision,
+          payload.wishlist,
           payload.locale,
         ],
       ],
