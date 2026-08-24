@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/locales";
@@ -15,6 +15,7 @@ const heroImages = [
 ];
 
 const ROTATE_MS = 5000;
+const SWIPE_THRESHOLD = 50;
 
 export default function Hero({
   dict,
@@ -24,16 +25,47 @@ export default function Hero({
   locale: Locale;
 }) {
   const [active, setActive] = useState(0);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
 
+  // Restarts the countdown every time the slide changes, whether by the
+  // timer itself, a dot click, or a swipe — so a manual pick isn't followed
+  // by a jarring auto-advance a moment later.
   useEffect(() => {
-    const id = setInterval(() => {
+    const id = setTimeout(() => {
       setActive((i) => (i + 1) % heroImages.length);
     }, ROTATE_MS);
-    return () => clearInterval(id);
-  }, []);
+    return () => clearTimeout(id);
+  }, [active]);
+
+  function goTo(index: number) {
+    setActive((index + heroImages.length) % heroImages.length);
+  }
+
+  function handleTouchStart(e: React.TouchEvent) {
+    touchStart.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY,
+    };
+  }
+
+  function handleTouchEnd(e: React.TouchEvent) {
+    if (!touchStart.current) return;
+    const deltaX = e.changedTouches[0].clientX - touchStart.current.x;
+    const deltaY = e.changedTouches[0].clientY - touchStart.current.y;
+    touchStart.current = null;
+
+    if (Math.abs(deltaX) < SWIPE_THRESHOLD || Math.abs(deltaX) < Math.abs(deltaY)) {
+      return;
+    }
+    goTo(active + (deltaX < 0 ? 1 : -1));
+  }
 
   return (
-    <section className="relative h-[85vh] min-h-[560px] overflow-hidden">
+    <section
+      className="relative h-[85vh] min-h-[560px] overflow-hidden touch-pan-y"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       {heroImages.map((src, i) => (
         <Image
           key={src}
@@ -82,7 +114,7 @@ export default function Hero({
           <button
             key={src}
             aria-label={`Show slide ${i + 1}`}
-            onClick={() => setActive(i)}
+            onClick={() => goTo(i)}
             className={`h-2 w-2 rounded-full transition-colors ${
               i === active ? "bg-cream" : "bg-cream/40"
             }`}
