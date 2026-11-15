@@ -113,14 +113,6 @@ export default function ContactForm({
                 </dt>
                 <dd className="text-ink/70 flex flex-col">
                   <a
-                    href="https://instagram.com/satisfilled_catering"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-primary transition-colors w-fit"
-                  >
-                    @satisfilled_catering
-                  </a>
-                  <a
                     href="https://instagram.com/satisfilledevents_and_decor"
                     target="_blank"
                     rel="noopener noreferrer"
