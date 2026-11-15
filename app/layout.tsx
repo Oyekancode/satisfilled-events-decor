@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://satisfilled.com"),
   title: "SatisFilled Events & Decor",
   description:
-    "Balloon decor, event styling and catering in Prague. Your satisfaction is our fulfillment.",
+    "Balloon decor and event styling in Prague. Your satisfaction is our fulfillment.",
   openGraph: {
     siteName: "SatisFilled Events & Decor",
     type: "website",

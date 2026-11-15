@@ -6,7 +6,6 @@ import ServiceCard from "./ServiceCard";
 const categoryImages: Record<string, string | null> = {
   Decor: "/images/decor-christening-emily.jpg",
   Events: "/images/decor-bearly-wait.jpg",
-  Catering: null,
   Výzdoba: "/images/decor-christening-emily.jpg",
   Akce: "/images/decor-bearly-wait.jpg",
 };

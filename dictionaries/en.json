@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "SatisFilled Events & Decor",
-    "description": "Balloon decor, event styling and catering in Prague. Your satisfaction is our fulfillment."
+    "description": "Balloon decor and event styling in Prague. Your satisfaction is our fulfillment."
   },
   "nav": {
     "home": "Home",
@@ -16,7 +16,7 @@
   "hero": {
     "tagline_pre": "Bringing beauty to your",
     "tagline_em": "special moments",
-    "subtitle": "Balloon decor, event styling and catering, crafted around you in Prague.",
+    "subtitle": "Balloon decor and event styling, crafted around you in Prague.",
     "cta_services": "View Services",
     "cta_book": "Book Now"
   },
@@ -34,7 +34,7 @@
       },
       {
         "title": "Design",
-        "text": "You receive a bespoke proposal covering decor, catering and styling."
+        "text": "You receive a bespoke proposal covering decor and styling."
       },
       {
         "title": "Cherish",
@@ -44,7 +44,7 @@
   },
   "services": {
     "heading": "Our Services",
-    "subheading": "Decor, events and catering, tailored to your celebration.",
+    "subheading": "Decor, events and gifts, tailored to your celebration.",
     "bookNow": "Book Now",
     "categories": [
       {
@@ -66,18 +66,12 @@
           { "title": "Bridal Showers", "text": "Elegant styling for the bride-to-be." },
           { "title": "Weddings", "text": "Décor that brings your wedding vision to life." },
           { "title": "Christenings & Naming Ceremonies", "text": "Gentle, celebratory styling for this special day." },
-          { "title": "Corporate Events", "text": "Polished decor and catering for company gatherings." }
+          { "title": "Corporate Events", "text": "Polished decor for company gatherings." }
         ]
       },
       {
-        "title": "Catering",
+        "title": "Gifts",
         "items": [
-          { "title": "Full Event Catering", "text": "Complete menus prepared and served for your event." },
-          { "title": "Grazing & Dessert Tables", "text": "Beautifully arranged grazing and dessert spreads." },
-          { "title": "Cakes & Desserts", "text": "Custom cakes and sweet treats made to order." },
-          { "title": "Small Chops & Finger Foods", "text": "Bite-sized favorites for mingling and celebrations." },
-          { "title": "Private Chef", "text": "A private chef for intimate dinners and gatherings." },
-          { "title": "Private & Group Picnics", "text": "Curated picnic setups for two or for a crowd." },
           { "title": "Custom Gift Baskets", "text": "Thoughtfully arranged gift baskets for any occasion." }
         ]
       }
@@ -139,7 +133,6 @@
         "Wedding",
         "Christening / Naming Ceremony",
         "Corporate Event",
-        "Catering Only",
         "Other"
       ],
       "eventDate": "Event Date",

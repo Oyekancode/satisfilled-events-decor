@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "SatisFilled Events & Decor",
-    "description": "Balónková výzdoba, styling akcí a catering v Praze. Vaše spokojenost je naše naplnění."
+    "description": "Balónková výzdoba a styling akcí v Praze. Vaše spokojenost je naše naplnění."
   },
   "nav": {
     "home": "Domů",
@@ -16,7 +16,7 @@
   "hero": {
     "tagline_pre": "Přinášíme krásu do vašich",
     "tagline_em": "výjimečných chvil",
-    "subtitle": "Balónková výzdoba, styling akcí a catering, vytvořené na míru v Praze.",
+    "subtitle": "Balónková výzdoba a styling akcí, vytvořené na míru v Praze.",
     "cta_services": "Zobrazit Služby",
     "cta_book": "Rezervovat"
   },
@@ -34,7 +34,7 @@
       },
       {
         "title": "Návrh",
-        "text": "Obdržíte návrh na míru zahrnující výzdobu, catering a styling."
+        "text": "Obdržíte návrh na míru zahrnující výzdobu a styling."
       },
       {
         "title": "Oslava",
@@ -44,7 +44,7 @@
   },
   "services": {
     "heading": "Naše Služby",
-    "subheading": "Výzdoba, akce a catering na míru vaší oslavě.",
+    "subheading": "Výzdoba, akce a dárky na míru vaší oslavě.",
     "bookNow": "Rezervovat",
     "categories": [
       {
@@ -66,18 +66,12 @@
           { "title": "Rozlučka se Svobodou", "text": "Elegantní styling pro budoucí nevěstu." },
           { "title": "Svatby", "text": "Výzdoba, která oživí vaši svatební vizi." },
           { "title": "Křtiny a Vítání Občánků", "text": "Jemný, slavnostní styling pro tento výjimečný den." },
-          { "title": "Firemní Akce", "text": "Profesionální výzdoba a catering pro firemní setkání." }
+          { "title": "Firemní Akce", "text": "Profesionální výzdoba pro firemní setkání." }
         ]
       },
       {
-        "title": "Catering",
+        "title": "Dárky",
         "items": [
-          { "title": "Kompletní Catering na Akce", "text": "Kompletní menu připravené a servírované na vaší akci." },
-          { "title": "Grazing a Dezertové Stoly", "text": "Krásně aranžované grazing a dezertové tabule." },
-          { "title": "Dorty a Dezerty", "text": "Vlastní dorty a sladkosti na zakázku." },
-          { "title": "Chuťovky a Občerstvení", "text": "Oblíbené drobné pokrmy pro networking a oslavy." },
-          { "title": "Soukromý Kuchař", "text": "Soukromý kuchař pro komorní večeře a setkání." },
-          { "title": "Soukromé a Skupinové Piknky", "text": "Připravené piknikové sety pro dva i pro větší skupinu." },
           { "title": "Vlastní Dárkové Koše", "text": "Promyšleně sestavené dárkové koše na jakoukoliv příležitost." }
         ]
       }
@@ -139,7 +133,6 @@
         "Svatba",
         "Křtiny / Vítání Občánků",
         "Firemní Akce",
-        "Pouze Catering",
         "Jiné"
       ],
       "eventDate": "Datum Akce",

@@ -29,7 +29,7 @@ const scrimSvg = `
 const textSvg = `
 <svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
   <text x="230" y="500" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="700" fill="#fdf6f2">SatisFilled Events &amp; Decor</text>
-  <text x="230" y="548" font-family="Arial, sans-serif" font-size="26" letter-spacing="1" fill="#f6e2e6">BALLOON DECOR &#183; EVENT STYLING &#183; CATERING</text>
+  <text x="230" y="548" font-family="Arial, sans-serif" font-size="26" letter-spacing="1" fill="#f6e2e6">BALLOON DECOR &#183; EVENT STYLING</text>
   <text x="230" y="584" font-family="Arial, sans-serif" font-size="24" fill="#f6e2e6">Prague, Czech Republic &#8212; satisfilled.com</text>
 </svg>`;
 
