@@ -26,6 +26,13 @@ export const galleryItems: GalleryItem[] = [
     title: { en: "Jungle 1st Birthday", cz: "Džungle – 1. narozeniny" },
   },
   {
+    src: "/images/gallery/purple-butterfly-10th.jpg",
+    width: 1400,
+    height: 1050,
+    category: "birthdays",
+    title: { en: "Purple Butterfly 10th Birthday", cz: "Fialoví motýli – 10. narozeniny" },
+  },
+  {
     src: "/images/gallery/gold-ivory-60th.jpg",
     width: 1086,
     height: 1448,
