@@ -14,8 +14,31 @@ const heroImages = [
   "/images/decor-bearly-wait.jpg",
 ];
 
+const COUNT = heroImages.length;
 const ROTATE_MS = 5000;
-const SWIPE_THRESHOLD = 50;
+const SNAP_MS = 450;
+// How far the finger must move before we decide if it's a sideways swipe
+// (ours) or an up/down scroll (the browser's).
+const AXIS_LOCK_PX = 8;
+
+function wrap(n: number) {
+  return ((n % COUNT) + COUNT) % COUNT;
+}
+
+// Where slide `index` sits relative to the one on screen:
+// 0 = showing, -1 = just off the left edge, +1 = just off the right edge.
+function offsetOf(index: number, active: number) {
+  let offset = wrap(index - active);
+  if (offset > COUNT / 2) offset -= COUNT;
+  return offset;
+}
+
+type TouchState = {
+  x: number;
+  y: number;
+  time: number;
+  axis: "x" | "y" | null;
+};
 
 export default function Hero({
   dict,
@@ -25,59 +48,115 @@ export default function Hero({
   locale: Locale;
 }) {
   const [active, setActive] = useState(0);
-  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const [dragX, setDragX] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  // True for one beat when jumping to a non-neighbouring slide (dot click),
+  // so we cut straight there instead of sweeping across the screen.
+  const [instant, setInstant] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const touch = useRef<TouchState | null>(null);
 
-  // Restarts the countdown every time the slide changes, whether by the
-  // timer itself, a dot click, or a swipe — so a manual pick isn't followed
-  // by a jarring auto-advance a moment later.
+  // Auto-advance. Restarts after every slide change (timer, dot, or swipe)
+  // and pauses entirely while a finger is dragging.
   useEffect(() => {
-    const id = setTimeout(() => {
-      setActive((i) => (i + 1) % heroImages.length);
-    }, ROTATE_MS);
+    if (dragging) return;
+    const id = setTimeout(() => setActive((i) => wrap(i + 1)), ROTATE_MS);
     return () => clearTimeout(id);
-  }, [active]);
+  }, [active, dragging]);
 
-  function goTo(index: number) {
-    setActive((index + heroImages.length) % heroImages.length);
+  useEffect(() => {
+    if (!instant) return;
+    const id = setTimeout(() => setInstant(false), 60);
+    return () => clearTimeout(id);
+  }, [instant]);
+
+  function goTo(target: number) {
+    const next = wrap(target);
+    const distance = wrap(next - active);
+    const isNeighbour = distance === 1 || distance === COUNT - 1;
+    if (next !== active && !isNeighbour) setInstant(true);
+    setActive(next);
   }
 
   function handleTouchStart(e: React.TouchEvent) {
-    touchStart.current = {
-      x: e.touches[0].clientX,
-      y: e.touches[0].clientY,
-    };
+    const t = e.touches[0];
+    touch.current = { x: t.clientX, y: t.clientY, time: Date.now(), axis: null };
   }
 
-  function handleTouchEnd(e: React.TouchEvent) {
-    if (!touchStart.current) return;
-    const deltaX = e.changedTouches[0].clientX - touchStart.current.x;
-    const deltaY = e.changedTouches[0].clientY - touchStart.current.y;
-    touchStart.current = null;
+  function handleTouchMove(e: React.TouchEvent) {
+    const start = touch.current;
+    if (!start) return;
+    const t = e.touches[0];
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
 
-    if (Math.abs(deltaX) < SWIPE_THRESHOLD || Math.abs(deltaX) < Math.abs(deltaY)) {
-      return;
+    if (start.axis === null) {
+      if (Math.abs(dx) < AXIS_LOCK_PX && Math.abs(dy) < AXIS_LOCK_PX) return;
+      start.axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
     }
-    goTo(active + (deltaX < 0 ? 1 : -1));
+    if (start.axis !== "x") return; // vertical: let the page scroll
+
+    const width = sectionRef.current?.offsetWidth ?? window.innerWidth;
+    setDragging(true);
+    setDragX(Math.max(-width, Math.min(width, dx)));
+  }
+
+  function finishTouch(e: React.TouchEvent, cancelled: boolean) {
+    const start = touch.current;
+    touch.current = null;
+    if (!start || start.axis !== "x") return;
+
+    const dx = e.changedTouches[0].clientX - start.x;
+    const width = sectionRef.current?.offsetWidth ?? window.innerWidth;
+    const elapsed = Math.max(1, Date.now() - start.time);
+    const farEnough = Math.abs(dx) > width * 0.2;
+    const quickFlick = Math.abs(dx) > 30 && Math.abs(dx) / elapsed > 0.4;
+
+    if (!cancelled && (farEnough || quickFlick)) {
+      goTo(active + (dx < 0 ? 1 : -1));
+    }
+    setDragging(false);
+    setDragX(0);
   }
 
   return (
     <section
+      ref={sectionRef}
       className="relative h-[85vh] min-h-[560px] overflow-hidden touch-pan-y"
       onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={(e) => finishTouch(e, false)}
+      onTouchCancel={(e) => finishTouch(e, true)}
     >
-      {heroImages.map((src, i) => (
-        <Image
-          key={src}
-          src={src}
-          alt=""
-          fill
-          priority={i === 0}
-          className={`object-cover transition-opacity duration-1000 ease-in-out ${
-            i === active ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      ))}
+      {heroImages.map((src, i) => {
+        const offset = offsetOf(i, active);
+        const near = Math.abs(offset) <= 1;
+        return (
+          <div
+            key={src}
+            aria-hidden={offset !== 0}
+            className="absolute inset-0"
+            style={{
+              transform: `translateX(calc(${offset * 100}% + ${near ? dragX : 0}px))`,
+              visibility: near ? "visible" : "hidden",
+              transition:
+                dragging || instant || !near
+                  ? "none"
+                  : `transform ${SNAP_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
+            }}
+          >
+            <Image
+              src={src}
+              alt=""
+              fill
+              sizes="100vw"
+              priority={i === 0}
+              loading={i === 0 ? undefined : "eager"}
+              className="object-cover"
+            />
+          </div>
+        );
+      })}
 
       <div className="absolute inset-0 bg-primary-dark/50" />
 
