@@ -44,7 +44,7 @@
   },
   "services": {
     "heading": "Naše Služby",
-    "subheading": "Výzdoba, akce a dárky na míru vaší oslavě.",
+    "subheading": "Výzdoba a akce na míru vaší oslavě.",
     "bookNow": "Rezervovat",
     "categories": [
       {
@@ -66,12 +66,7 @@
           { "title": "Rozlučka se Svobodou", "text": "Elegantní styling pro budoucí nevěstu." },
           { "title": "Svatby", "text": "Výzdoba, která oživí vaši svatební vizi." },
           { "title": "Křtiny a Vítání Občánků", "text": "Jemný, slavnostní styling pro tento výjimečný den." },
-          { "title": "Firemní Akce", "text": "Profesionální výzdoba pro firemní setkání." }
-        ]
-      },
-      {
-        "title": "Dárky",
-        "items": [
+          { "title": "Firemní Akce", "text": "Profesionální výzdoba pro firemní setkání." },
           { "title": "Vlastní Dárkové Koše", "text": "Promyšleně sestavené dárkové koše na jakoukoliv příležitost." }
         ]
       }

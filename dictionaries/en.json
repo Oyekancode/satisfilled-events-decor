@@ -44,7 +44,7 @@
   },
   "services": {
     "heading": "Our Services",
-    "subheading": "Decor, events and gifts, tailored to your celebration.",
+    "subheading": "Decor and events, tailored to your celebration.",
     "bookNow": "Book Now",
     "categories": [
       {
@@ -66,12 +66,7 @@
           { "title": "Bridal Showers", "text": "Elegant styling for the bride-to-be." },
           { "title": "Weddings", "text": "Décor that brings your wedding vision to life." },
           { "title": "Christenings & Naming Ceremonies", "text": "Gentle, celebratory styling for this special day." },
-          { "title": "Corporate Events", "text": "Polished decor for company gatherings." }
-        ]
-      },
-      {
-        "title": "Gifts",
-        "items": [
+          { "title": "Corporate Events", "text": "Polished decor for company gatherings." },
           { "title": "Custom Gift Baskets", "text": "Thoughtfully arranged gift baskets for any occasion." }
         ]
       }
