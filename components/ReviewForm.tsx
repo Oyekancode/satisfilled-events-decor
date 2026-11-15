@@ -51,6 +51,16 @@ export default function ReviewForm({
       <p className="mt-2 text-sm text-ink/70 text-center">{f.subheading}</p>
 
       <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
+        {/* Spam trap: invisible to people, tempting to bots. Leave it empty. */}
+        <input
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          className="absolute -left-[9999px] h-0 w-0 opacity-0"
+        />
+
         <div className="flex flex-col items-center gap-1">
           <span className="text-sm font-medium text-ink/80">{f.rating}</span>
           <StarRating value={rating} onChange={setRating} size={28} />

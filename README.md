@@ -27,20 +27,52 @@ code to change wording. To edit layout/styling, edit the matching file in
 
 ## Reviews / testimonials
 
-Visitors can submit a star rating + testimonial via the "Reviews" section
-(`components/Testimonials.tsx` + `ReviewForm.tsx`), which POSTs to
-`app/api/review/route.ts`. **Nothing publishes automatically** — a submission
-only sends you an email (reusing the same `RESEND_API_KEY` the inquiry form
-uses, no new setup needed). To actually put a review on the site, add it by
-hand to the `testimonials.reviews` array in both `dictionaries/en.json` and
-`dictionaries/cz.json`:
+Visitors submit a star rating + testimonial in the "Reviews" section. **Nothing
+goes live until you approve it.**
+
+How it works (once storage is set up, see below):
+
+1. A visitor submits the form → `app/api/review/route.ts` saves it as
+   **pending** and emails you (`RESEND_API_KEY`, same as the inquiry form).
+2. The email has a **Review & approve** button. It opens a private page
+   (`/manage-review/<id>?t=<secret>`) showing the review with **Approve** and
+   **Reject** buttons. The link contains a secret only you receive, so don't
+   forward the email.
+3. Approve → the review appears in the Reviews section within about a minute
+   (the list is fetched from `/api/reviews`; Vercel's edge caches it for 20s).
+   The same page lets you **Remove** an approved review later.
+4. Reviews show exactly as written, on both the EN and CZ pages.
+
+Spam protection: a hidden form field that bots fill in, and a limit of 3
+submissions per visitor per hour. Visitors' addresses are hashed, never stored.
+
+### One-time setup: review storage (free)
+
+The site needs somewhere to remember reviews. This uses Upstash Redis through
+the Vercel Marketplace:
+
+1. Vercel dashboard → your project → **Storage** (or the Marketplace) → add
+   **Upstash Redis**, sign in to / create an Upstash account, choose the free
+   plan, and link it to this project (all environments).
+2. The integration adds environment variables to the project automatically
+   (named `KV_REST_API_URL` / `KV_REST_API_TOKEN`, or
+   `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` — the code accepts
+   either). You don't copy anything by hand.
+3. **Redeploy** (Deployments → ⋯ → Redeploy) so the site picks them up.
+
+Until storage is set up the site still works: submissions just email you,
+and the email says to publish by hand (below). The code reads
+`lib/review-store.ts`.
+
+### Publishing by hand (fallback)
+
+You can still hard-code a review: add it to the `testimonials.reviews` array
+in both `dictionaries/en.json` and `dictionaries/cz.json`. These show on the
+site alongside approved reviews.
 
 ```json
 { "name": "Jane D.", "rating": 5, "text": "Absolutely loved our balloon arch!" }
 ```
-
-If you want the review in both languages, translate `text` for the CZ file;
-`name` and `rating` stay the same.
 
 ## Favicon / site icons
 

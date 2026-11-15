@@ -1,9 +1,7 @@
 import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/locales";
-import StarRating from "./StarRating";
 import ReviewForm from "./ReviewForm";
-
-type Review = { name: string; rating: number; text: string };
+import ReviewList, { type Review } from "./ReviewList";
 
 export default function Testimonials({
   dict,
@@ -13,7 +11,9 @@ export default function Testimonials({
   locale: Locale;
 }) {
   const t = dict.testimonials;
-  const reviews = t.reviews as Review[];
+  // Hand-added reviews from the dictionary files still work; approved reviews
+  // from the website's form are loaded alongside them by ReviewList.
+  const handAdded = t.reviews as Review[];
 
   return (
     <section id="testimonials" className="bg-blush/30 py-24">
@@ -25,26 +25,7 @@ export default function Testimonials({
           <p className="mt-4 text-ink/70">{t.subheading}</p>
         </div>
 
-        {reviews.length === 0 ? (
-          <p className="mt-12 text-center text-sm text-ink/50">{t.empty}</p>
-        ) : (
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
-            {reviews.map((review) => (
-              <div
-                key={`${review.name}-${review.text.slice(0, 10)}`}
-                className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm"
-              >
-                <StarRating value={review.rating} size={16} />
-                <p className="mt-3 text-sm text-ink/80">
-                  &ldquo;{review.text}&rdquo;
-                </p>
-                <p className="mt-3 text-sm font-medium text-primary">
-                  {review.name}
-                </p>
-              </div>
-            ))}
-          </div>
-        )}
+        <ReviewList initial={handAdded} emptyText={t.empty} />
 
         <ReviewForm dict={dict} locale={locale} />
       </div>

@@ -65,26 +65,43 @@ export type ReviewPayload = {
   locale: string;
 };
 
-export async function sendReviewEmail(payload: ReviewPayload) {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    throw new Error("RESEND_API_KEY is not set");
-  }
-
-  const resend = new Resend(apiKey);
-
+// `manageUrl` is the private approve/reject page for this review. It is only
+// available when review storage is set up; without it the email is
+// notification-only and the review has to be published by hand.
+export function reviewEmailHtml(payload: ReviewPayload, manageUrl?: string) {
   const stars = "★".repeat(payload.rating) + "☆".repeat(5 - payload.rating);
 
-  const html = `
+  const action = manageUrl
+    ? `
+    <p style="margin:24px 0">
+      <a href="${manageUrl}" style="background:#7a0c30;color:#fdf6f2;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">Review &amp; approve</a>
+    </p>
+    <p style="color:#888;font-size:12px">The review will not appear on the website until you approve it. This link is private — don't forward this email.</p>`
+    : `
+    <p style="color:#888;font-size:12px">This review is not published automatically — add it to dictionaries/en.json and dictionaries/cz.json under "testimonials.reviews" to publish it.</p>`;
+
+  return `
     <h2>New review submitted on SatisFilled Events & Decor website</h2>
     <p><strong>Name:</strong> ${escapeHtml(payload.name)}</p>
     <p><strong>Rating:</strong> ${stars} (${payload.rating}/5)</p>
     <p><strong>Review:</strong><br/>${escapeHtml(payload.text).replaceAll(
       "\n",
       "<br/>"
-    )}</p>
-    <p style="color:#888;font-size:12px">This review is not published automatically — add it to dictionaries/en.json and dictionaries/cz.json under "testimonials.reviews" to publish it.</p>
+    )}</p>${action}
   `;
+}
+
+export async function sendReviewEmail(
+  payload: ReviewPayload,
+  manageUrl?: string
+) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error("RESEND_API_KEY is not set");
+  }
+
+  const resend = new Resend(apiKey);
+  const html = reviewEmailHtml(payload, manageUrl);
 
   await resend.emails.send({
     from: "SatisFilled Website <onboarding@resend.dev>",
