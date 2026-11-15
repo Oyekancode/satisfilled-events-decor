@@ -26,13 +26,6 @@ export const galleryItems: GalleryItem[] = [
     title: { en: "Jungle 1st Birthday", cz: "Džungle – 1. narozeniny" },
   },
   {
-    src: "/images/gallery/minnie-first-birthday-a.jpg",
-    width: 1400,
-    height: 1867,
-    category: "birthdays",
-    title: { en: "Minnie Mouse 1st Birthday", cz: "Minnie Mouse – 1. narozeniny" },
-  },
-  {
     src: "/images/gallery/gold-ivory-60th.jpg",
     width: 1086,
     height: 1448,
