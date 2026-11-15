@@ -22,9 +22,6 @@ export const metadata: Metadata = {
   title: "SatisFilled Events & Decor",
   description:
     "Balloon decor, event styling and catering in Prague. Your satisfaction is our fulfillment.",
-  icons: {
-    icon: "/images/logo.png",
-  },
   openGraph: {
     siteName: "SatisFilled Events & Decor",
     type: "website",

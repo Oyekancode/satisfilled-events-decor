@@ -42,6 +42,23 @@ hand to the `testimonials.reviews` array in both `dictionaries/en.json` and
 If you want the review in both languages, translate `text` for the CZ file;
 `name` and `rating` stay the same.
 
+## Favicon / site icons
+
+The browser-tab icon, Google's search icon and the iPhone home-screen icon
+are `app/favicon.ico`, `app/icon.png` and `app/apple-icon.png` — Next.js
+picks them up automatically by filename. They're cut from the round monogram
+in `public/images/logo.png` by `scripts/gen-icons.mjs`. To regenerate them
+(e.g. if the logo changes):
+
+```bash
+npm install --no-save sharp
+node scripts/gen-icons.mjs
+npm uninstall sharp
+```
+
+Browsers cache favicons aggressively, so after deploying a new one you may
+need a hard refresh (Ctrl+Shift+R) or a few hours before the tab updates.
+
 ## Social share preview (Open Graph image)
 
 `app/opengraph-image.jpg` is what shows up when a link to satisfilled.com is
