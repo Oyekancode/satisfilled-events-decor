@@ -7,6 +7,7 @@
     "home": "Home",
     "journey": "Our Journey",
     "services": "Services",
+    "gallery": "Gallery",
     "estimate": "Build Your Wishlist",
     "testimonials": "Reviews",
     "contact": "Contact & Inquire",
@@ -81,6 +82,18 @@
         ]
       }
     ]
+  },
+  "gallery": {
+    "heading": "Our Work",
+    "subheading": "A look at some of the celebrations we've styled.",
+    "filters": {
+      "all": "All",
+      "birthdays": "Birthdays",
+      "events": "Events & Celebrations"
+    },
+    "close": "Close",
+    "previous": "Previous photo",
+    "next": "Next photo"
   },
   "estimate": {
     "heading": "Build Your Wishlist",

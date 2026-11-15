@@ -7,6 +7,7 @@
     "home": "Domů",
     "journey": "Naše Cesta",
     "services": "Služby",
+    "gallery": "Galerie",
     "estimate": "Sestavte Si Přání",
     "testimonials": "Recenze",
     "contact": "Kontakt a Poptávka",
@@ -81,6 +82,18 @@
         ]
       }
     ]
+  },
+  "gallery": {
+    "heading": "Naše Práce",
+    "subheading": "Ochutnávka oslav, které jsme vyzdobili.",
+    "filters": {
+      "all": "Vše",
+      "birthdays": "Narozeniny",
+      "events": "Akce a Oslavy"
+    },
+    "close": "Zavřít",
+    "previous": "Předchozí fotka",
+    "next": "Další fotka"
   },
   "estimate": {
     "heading": "Sestavte Si Přání",
