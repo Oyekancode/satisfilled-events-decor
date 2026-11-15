@@ -108,7 +108,7 @@
       "textPlaceholder": "Tell us about your experience...",
       "submit": "Submit Review",
       "submitting": "Sending...",
-      "success": "Thank you! We've received your review. It will appear on the site once we've approved it.",
+      "success": "Thank you! We've received your review.",
       "error": "Something went wrong. Please try again or email us directly."
     }
   },
