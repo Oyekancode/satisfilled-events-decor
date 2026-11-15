@@ -143,9 +143,14 @@
     "details": {
       "email": "Email",
       "phone": "Phone",
+      "whatsapp": "WhatsApp",
       "location": "Location",
       "instagram": "Instagram"
     }
+  },
+  "whatsapp": {
+    "label": "Chat with us on WhatsApp",
+    "message": "Hello! I have a question about event decoration."
   },
   "footer": {
     "rights": "All rights reserved.",

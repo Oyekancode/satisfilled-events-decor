@@ -10,6 +10,7 @@ import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
 import WishlistSection from "@/components/WishlistSection";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export async function generateMetadata({
   params,
@@ -68,6 +69,7 @@ export default async function HomePage({
         <Testimonials dict={dict} locale={locale} />
       </main>
       <Footer dict={dict} />
+      <WhatsAppButton dict={dict} />
     </div>
   );
 }

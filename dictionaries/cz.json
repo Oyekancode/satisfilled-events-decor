@@ -143,9 +143,14 @@
     "details": {
       "email": "E-mail",
       "phone": "Telefon",
+      "whatsapp": "WhatsApp",
       "location": "Místo",
       "instagram": "Instagram"
     }
+  },
+  "whatsapp": {
+    "label": "Napište nám na WhatsApp",
+    "message": "Dobrý den, mám dotaz ohledně výzdoby akce."
   },
   "footer": {
     "rights": "Všechna práva vyhrazena.",

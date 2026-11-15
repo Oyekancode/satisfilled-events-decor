@@ -2,9 +2,10 @@
 
 import { useState, type FormEvent } from "react";
 import { Phone, MapPin } from "lucide-react";
-import { SiGmail, SiInstagram } from "react-icons/si";
+import { SiGmail, SiInstagram, SiWhatsapp } from "react-icons/si";
 import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/locales";
+import { whatsappUrl } from "@/lib/whatsapp";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -83,6 +84,22 @@ export default function ContactForm({
               <div>
                 <dt className="font-medium text-primary">
                   {dict.contact.details.phone}
+                </dt>
+                <dd className="text-ink/70 group-hover:text-primary transition-colors">
+                  +420 774 374 600
+                </dd>
+              </div>
+            </a>
+            <a
+              href={whatsappUrl(dict.whatsapp.message)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-3 group w-fit"
+            >
+              <SiWhatsapp className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+              <div>
+                <dt className="font-medium text-primary">
+                  {dict.contact.details.whatsapp}
                 </dt>
                 <dd className="text-ink/70 group-hover:text-primary transition-colors">
                   +420 774 374 600
